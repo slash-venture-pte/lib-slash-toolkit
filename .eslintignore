@@ -1,0 +1,3 @@
+#include test folder for linting later
+dist/**/*.js
+node_modules/**/*.js

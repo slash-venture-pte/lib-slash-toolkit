@@ -1,0 +1,67 @@
+{
+  "name": "@slashtoolkit/root.extended.js",
+  "version": "0.0.21",
+  "description": "Additional toolkit required to be used in the Root.js project",
+  "main": "dist/index.js",
+  "scripts": {
+    "prestart": "npm run build",
+    "start": "node dist/index.js",
+    "test": "jest",
+    "lint:fix": "eslint --fix .",
+    "lint": "eslint .",
+    "lint:watch": "esw --watch --fix .",
+    "build": "babel -d dist/ src/",
+    "prepublish": "npm run build",
+    "test:demo": "./node_modules/.bin/babel-node demo/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git clone https://npsopheak@bitbucket.org/axaslash/root-extended-js.git"
+  },
+  "keywords": [
+    "root"
+  ],
+  "author": "Sean",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/runtime": "^7.6.3",
+    "aws-sdk": "^2.283.1",
+    "bluebird": "^3.5.1",
+    "crypto-js": "^3.1.9-1",
+    "dotenv": "^5.0.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.8.2",
+    "eslint-watch": "^3.1.5",
+    "file-type": "^9.0.0",
+    "firebase-admin": "^6.0.0",
+    "gm": "^1.23.1",
+    "ip": "^1.1.5",
+    "later": "^1.2.0",
+    "mailgun-js": "^0.18.0",
+    "mkdirp": "^0.5.1",
+    "moment": "^2.22.2",
+    "node-rsa": "^1.0.0",
+    "node-uuid": "^1.4.8",
+    "onesignal-node": "^2.0.0",
+    "plivo": "^4.0.0",
+    "pluralize": "^7.0.0",
+    "q": "^1.5.1",
+    "redis": "^2.8.0",
+    "request": "^2.87.0",
+    "s3-upload-stream": "^1.0.7",
+    "twilio": "^3.17.1",
+    "underscore": "^1.9.1",
+    "validator": "^10.2.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/node": "^7.6.1",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.6.0",
+    "babel-jest": "^24.9.0",
+    "eslint": "^4.19.1",
+    "jest": "^24.9.0"
+  }
+}
