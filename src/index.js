@@ -3,8 +3,6 @@ import config from './configs/index';
 import util from './utils';
 import log from './utils/log';
 import time from './utils/time';
-// import * as fs from 'fs';
-// import * as path from 'path';
 
 import cache from './libs/cache';
 import email from './libs/email';

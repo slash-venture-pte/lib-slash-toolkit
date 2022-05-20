@@ -1,5 +1,4 @@
 import config from '../configs';
-import log from '../utils/log';
 
 const plivo = require('plivo');
 const assert = require('assert');

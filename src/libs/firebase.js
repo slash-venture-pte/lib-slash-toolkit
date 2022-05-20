@@ -2,33 +2,30 @@ import * as admin from 'firebase-admin';
 
 import config from '../configs';
 import util from '../utils';
-// const assert = require('assert');
+
 let configOptions;
-let oneSignalClient;
 const Lib = {};
 
 /**
  * Initialize
  * @param {userAuthKey, appAuthKey, appId} opts
  */
-Lib.init = opts => {
+Lib.init = (opts) => {
   configOptions = config.get('firebase');
   if (opts) {
     configOptions = Object.assign(configOptions, opts);
   }
-  
-  admin.auth(
-    admin.initializeApp({
-      credential: admin.credential.cert(configOptions)
-    })
-  );
+
+  admin.auth(admin.initializeApp({
+    credential: admin.credential.cert(configOptions)
+  }));
 };
 
 /**
  *
- * @param {*} sendTo { 
-    androidPushToken: string[]; 
-    otherPushToken: string[] 
+ * @param {*} sendTo {
+    androidPushToken: string[];
+    otherPushToken: string[]
   }
  * @param {*} payload {
     data?: {};
@@ -62,21 +59,19 @@ Lib.sendNotification = async (sendTo, payload, options) => {
     Lib.init();
   }
 
-  /* const dataPayload = {
-    data: payload.data
-  }; */
+  const dataPayload = {
+  };
 
   if (sendTo.androidPushToken && sendTo.androidPushToken.length) {
     return admin.messaging().sendToDevice(sendTo.androidPushToken, payload, options);
-  } else {
-    //iOS or beside android
-    dataPayload.notification = payload.notification || {
-      body: (payload.data || {}).notificationMessage || (payload.data || {}).message || undefined,
-      tag: payload.data && payload.data.tag ? payload.data.tag : ''
-    };
-
-    return admin.messaging().sendToDevice(sendTo.otherPushToken, dataPayload, options);
   }
+  // iOS or beside android
+  dataPayload.notification = payload.notification || {
+    body: (payload.data || {}).notificationMessage || (payload.data || {}).message || undefined,
+    tag: payload.data && payload.data.tag ? payload.data.tag : ''
+  };
+
+  return admin.messaging().sendToDevice(sendTo.otherPushToken, dataPayload, options);
 };
 
 Lib.sentToTopic = async (topic, payload, options) => {

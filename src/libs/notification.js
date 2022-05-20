@@ -1,7 +1,7 @@
 import assert from 'assert';
 import moment from 'moment';
 import pluralize from 'pluralize';
-import _ from 'underscore';
+import _ from 'lodash';
 // import request from 'request';
 import oneSignal from './plugins/notification/one-signal';
 import stringLib from './strings';

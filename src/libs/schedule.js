@@ -4,7 +4,7 @@
 */
 import appLog from '../utils/log';
 
-const _ = require('underscore');
+const _ = require('lodash');
 const later = require('later');
 
 /**

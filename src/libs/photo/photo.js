@@ -88,7 +88,7 @@ export default class PhotoLib extends Base {
       fullFilePath: {},
       linkPath: {}
     };
-    sizes.forEach(v => {
+    sizes.forEach((v) => {
       const path = format(this.config.imageConfig[refType][photoType].directory, referenceId || 'shares', v);
       result.fullDirPath[v] = this.config.path.public(path);
       result.fullFilePath[v] = result.fullDirPath[v] + filename;
@@ -106,7 +106,7 @@ export default class PhotoLib extends Base {
             imageMagick: false
           })
           .autoOrient()
-          .write(tmpPath, err => {
+          .write(tmpPath, (err) => {
             if (err) {
               // Logger.error('photoLib::resize::size\t\t' + err);
               reject(err);

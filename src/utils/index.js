@@ -1,7 +1,7 @@
 import Promise from 'bluebird';
 
 const uuid = require('node-uuid');
-const _ = require('underscore');
+const _ = require('lodash');
 const mkdirp = require('mkdirp');
 
 let ip = require('ip');
@@ -299,6 +299,16 @@ export default {
     return result;
   },
   propToString(obj) {
-    return _.each(obj, (v, k) => (_.isNumber(v) || _.isBoolean(v) ? (obj[k] = v.toString()) : v === null ? (obj[k] = '') : v));
+    return _.each(obj, (v, k) => {
+      let item = v;
+      if (_.isNumber(v) || _.isBoolean(v)) {
+        item = v.toString();
+        obj[k] = item;
+      } else if (!v) {
+        item = '';
+        obj[k] = item;
+      }
+      return item;
+    });
   }
 };

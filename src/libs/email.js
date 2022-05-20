@@ -10,7 +10,7 @@ const assert = require('assert');
 const validator = require('validator');
 // const nodemailer = require('nodemailer');
 const fs = require('fs');
-const _ = require('underscore');
+const _ = require('lodash');
 const Mailgun = require('mailgun-js');
 
 let configOptions = null;
